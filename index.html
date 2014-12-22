@@ -5,20 +5,21 @@
 </head>
 <body>
   <h1>Rust Conversion Reference</h1>
+  <p>Put caveat about &amp;str vs String here</p>
   <table>
     <tr>
       <th>Want a &#9654;<br/>Have an x of type &#9660;</th>
       <th>int</th>
-      <th>&amp;str</th>
+      <th>String</th>
     </tr>
     <tr>
       <th>int</th>
       <td>n/a</td>
-      <td>x.to_string()</td>
+      <td><code>x.to_string()</code></td>
     </tr>
     <tr>
-      <th>&amp;str</th>
-      <td>from_str::&lt;int>(x).unwrap()</td>
+      <th>String</th>
+      <td><code>from_str::<int>(x).unwrap()</code></td>
       <td>n/a</td>
     </tr>
   </table>
