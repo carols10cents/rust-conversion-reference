@@ -1,9 +1,11 @@
 fn main() {
-    let int_x = 3i;
-    let int_to_string = int_x.to_string();
-    let int_to_str = int_to_string.as_slice();
+    let s = "I am a &str.";
 
-    println!("Hello, world!");
+    // &str => String
+    let st: String = s.to_string();
+
+    // String => &str
+    let str: &str = st.as_slice();
 }
 
 fn int_to_string(x: int) -> String {
