@@ -12,10 +12,58 @@ fn main() {
     let str: &str = st.as_slice();
 }
 
+// int ---------------------------------------------------------------
+
+fn int_to_uint(x: int) -> uint {
+    x.to_uint().unwrap()
+}
+
 fn int_to_string(x: int) -> String {
     x.to_string()
 }
 
+fn int_to_char(x: int) -> char {
+    std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()
+}
+
+// uint ---------------------------------------------------------------
+
+fn uint_to_int(x: uint) -> int {
+    x.to_int().unwrap()
+}
+
+fn uint_to_string(x: uint) -> String {
+    x.to_string()
+}
+
+fn uint_to_char(x: uint) -> char {
+    std::char::from_digit(x, 10).unwrap()
+}
+
+// String ---------------------------------------------------------------
+
 fn string_to_int(x: String) -> int {
     x.parse().unwrap()
+}
+
+fn string_to_uint(x: String) -> uint {
+    x.parse().unwrap()
+}
+
+fn string_to_char(x: String) -> char {
+    x.char_at(0)
+}
+
+// char ---------------------------------------------------------------
+
+fn char_to_int(x: char) -> int {
+    std::char::to_digit(x, 10).unwrap().to_int().unwrap()
+}
+
+fn char_to_uint(x: char) -> uint {
+    std::char::to_digit(x, 10).unwrap()
+}
+
+fn char_to_string(x: char) -> String {
+    x.to_string()
 }
