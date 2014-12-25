@@ -1,4 +1,8 @@
+// This should fail to compile if any of these code examples are wrong.
+
 fn main() {
+    // Doing the string conversions all in main so that the lifetimes can be inferred.
+
     let s = "I am a &str.";
 
     // &str => String
