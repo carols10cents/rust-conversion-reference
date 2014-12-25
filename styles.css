@@ -1,5 +1,12 @@
 body {
   font-family: Garamond, Georgia, Times, "Times New Roman", serif;
+  padding: 35px 60px;
+}
+section {
+  margin: 50px 0;
+}
+p {
+  width: 550px;
 }
 table {
   border-collapse: collapse;
