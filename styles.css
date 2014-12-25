@@ -1,3 +1,6 @@
+body {
+  font-family: Garamond, Georgia, Times, "Times New Roman", serif;
+}
 table {
   border-collapse: collapse;
 }
@@ -11,5 +14,10 @@ th {
   font-style: bold;
 }
 td {
-  font-family: monospace;
+  font-family: Courier, "Courier New", monospace;
+}
+td.na {
+  font-family: Garamond, Georgia, Times, "Times New Roman", serif;
+  color: #888;
+  background: #efefef;
 }
