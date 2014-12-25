@@ -1,0 +1,7 @@
+language: rust
+notifications:
+  email:
+    recipients:
+      - carol.nichols@gmail.com
+    on_success: never
+    on_failure: change
