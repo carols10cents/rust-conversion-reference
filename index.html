@@ -53,13 +53,13 @@
       <tr>
         <th>int</th>
         <td class="na">n/a</td>
-        <td>x.to_uint().unwrap()</td>
+        <td>x as uint</td>
         <td>x.to_string()</td>
         <td>std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()</td>
       </tr>
       <tr>
         <th>uint</th>
-        <td>x.to_int().unwrap()</td>
+        <td>x as int</td>
         <td class="na">n/a</td>
         <td>x.to_string()</td>
         <td>std::char::from_digit(x, 10).unwrap()</td>

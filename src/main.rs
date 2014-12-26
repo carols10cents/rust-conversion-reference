@@ -15,7 +15,7 @@ fn main() {
 // int ---------------------------------------------------------------
 
 fn int_to_uint(x: int) -> uint {
-    x.to_uint().unwrap()
+    x as uint
 }
 
 #[test]
@@ -50,7 +50,7 @@ fn test_int_to_char_happy() {
 // uint ---------------------------------------------------------------
 
 fn uint_to_int(x: uint) -> int {
-    x.to_int().unwrap()
+    x as int
 }
 
 #[test]
