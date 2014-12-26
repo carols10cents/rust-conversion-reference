@@ -29,7 +29,7 @@ table, th, td {
 }
 th, td {
   padding: 10px;
-  white-space: nowrap;
+  width: 180px;
 }
 th {
   font-style: bold;
@@ -42,19 +42,6 @@ td.na {
   color: #888;
   background: #efefef;
 }
-.sticky-column {
-  width: 180px;
-  clear: none;
-  margin-top: 19px;
-}
-.sticky-container {
-  width: 500px;
-  overflow-x: auto;
-}
-.sticky-column th.tall,
-.sticky-container th {
-  height: 60px;
-}
-.sticky-container span {
-  margin-left: 20px;
+th.nowrap {
+  white-space: nowrap;
 }
