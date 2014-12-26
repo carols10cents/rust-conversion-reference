@@ -41,7 +41,7 @@ fn test_int_to_string_happy() {
 
 #[allow(dead_code)]
 fn int_to_char(x: int) -> char {
-    std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()
+    std::char::from_digit(x as uint, 10).unwrap()
 }
 
 #[test]
@@ -167,7 +167,7 @@ fn test_string_to_f64_happy() {
 
 #[allow(dead_code)]
 fn char_to_int(x: char) -> int {
-    Char::to_digit(x, 10).unwrap().to_int().unwrap()
+    Char::to_digit(x, 10).unwrap() as int
 }
 
 #[test]
@@ -253,7 +253,7 @@ fn test_f64_to_string_happy() {
 
 #[allow(dead_code)]
 fn f64_to_char(x: f64) -> char {
-    std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()
+    std::char::from_digit(x as uint, 10).unwrap()
 }
 
 #[test]

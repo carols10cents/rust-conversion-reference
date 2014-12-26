@@ -57,7 +57,7 @@
         <td class="na">n/a</td>
         <td>x as uint</td>
         <td>x.to_string()</td>
-        <td>std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()</td>
+        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td>x as f64</td>
       </tr>
       <tr>
@@ -78,7 +78,7 @@
       </tr>
       <tr>
         <th>char</th>
-        <td>Char::to_digit(x, 10).unwrap().to_int().unwrap()</td>
+        <td>Char::to_digit(x, 10).unwrap() as int</td>
         <td>Char::to_digit(x, 10).unwrap()</td>
         <td>x.to_string()</td>
         <td class="na">n/a</td>
@@ -89,7 +89,7 @@
         <td>x as int</td>
         <td>x as uint</td>
         <td>x.to_string()</td>
-        <td>std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()</td>
+        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td class="na">n/a</td>
       </tr>
     </table>
