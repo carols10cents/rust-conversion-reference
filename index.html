@@ -7,32 +7,9 @@
 <body>
   <h1>Rust Conversion Reference</h1>
   <strong>valid with rustc 0.13.0-dev (f673e9841 2014-12-25 14:21:47 +0000)</strong>
-  <section class="clearfix">
-    <h2>&amp;str/String/collections::string::String</h2>
-    <p>Strings can be of variable size, so they behave differently than the fixed size primitives. There is more information about these in the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a>. When converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have. </p>
-    <p>Also note that collections::string is re-exported as std::string, so if you get an error message saying "expected collections::string::String", that's the same as if the error message said "expected String".</p>
-    <p>So. Here are the ways to convert between these when the lifetimes can be inferred:</p>
-    <table>
-      <tr>
-        <th>Want x to be &#9654;<br />Have an x of type &#9660;</th>
-        <th>String</th>
-        <th>&amp;str</th>
-      </tr>
-      <tr>
-        <th>String</th>
-        <td class="na">n/a</td>
-        <td>x.as_slice()</td>
-      </tr>
-      <tr>
-        <th>&amp;str</th>
-        <td>x.to_string()</td>
-        <td class="na">n/a</td>
-      </tr>
-    </table>
-  </section>
 
   <section class="clearfix">
-    <h2>Everything else</h2>
+    <h2>Primitives</h2>
     <p>There are many ways to convert these types between each other; these are the most straightforward, least surprising ones I've found. Please see <a href="https://github.com/carols10cents/rust-conversion-reference/blob/gh-pages/src/main.rs">the happy path test cases</a> for what I expect their behavior to be.</p>
     <p><strong>These conversions *will* panic if the conversion can't be performed on the input you supply!</strong></p>
     <table class="sticky-column">
@@ -114,6 +91,32 @@
       </table>
     </div>
   </section>
+
+  <section class="clearfix">
+    <h2>&amp;str/String/collections::string::String</h2>
+    <p>Strings are... special. It's a long story that the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a> goes into.</p>
+    <p>I've pulled the string types out into a separate table because it's not possible to get an &amp;str without going through String, so it would add a lot of redundancy. Also, when converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have.</p>
+    <p>Also note that collections::string is re-exported as std::string, so if you get an error message saying "expected collections::string::String", that's the same as if the error message said "expected String".</p>
+    <p>So. Here are the ways to convert between these when the lifetimes can be inferred:</p>
+    <table>
+      <tr>
+        <th>Want x to be &#9654;<br />Have an x of type &#9660;</th>
+        <th>String</th>
+        <th>&amp;str</th>
+      </tr>
+      <tr>
+        <th>String</th>
+        <td class="na">n/a</td>
+        <td>x.as_slice()</td>
+      </tr>
+      <tr>
+        <th>&amp;str</th>
+        <td>x.to_string()</td>
+        <td class="na">n/a</td>
+      </tr>
+    </table>
+  </section>
+
   <section class="clearfix">
     <p>I hope you find this helpful! &lt;3</p>
     <p>I'm just a person who makes mistakes just like you, and Rust changes frequently, so if something on this page isn't right, please <a href="https://github.com/carols10cents/rust-conversion-reference/edit/gh-pages/index.html">make a correction</a>!</p>
