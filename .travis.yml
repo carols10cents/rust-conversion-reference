@@ -1,4 +1,7 @@
 language: rust
+branches:
+  only:
+    - gh-pages
 notifications:
   email:
     recipients:
