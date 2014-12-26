@@ -16,8 +16,8 @@
       <!-- Template for a new type
       <tr>
         <th>new</th>
-        <td>int</td>
-        <td>uint</td>
+        <td>i32</td>
+        <td>u32</td>
         <td>String</td>
         <td>char</td>
         <td>f64</td>
@@ -26,48 +26,48 @@
       -->
       <tr>
         <th class="nowrap">Want x to be &#9654;<br/>Have an x of type &#9660;</th>
-        <th>int</th>
-        <th>uint</th>
+        <th>i32</th>
+        <th>u32</th>
         <th>String</th>
         <th>char</th>
         <th>f64</th>
       </tr>
       <tr>
-        <th>int</th>
+        <th>i32</th>
         <td class="na">n/a</td>
-        <td>x as uint</td>
+        <td>x as u32</td>
         <td>x.to_string()</td>
         <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td>x as f64</td>
       </tr>
       <tr>
-        <th>uint</th>
-        <td>x as int</td>
+        <th>u32</th>
+        <td>x as i32</td>
         <td class="na">n/a</td>
         <td>x.to_string()</td>
-        <td>std::char::from_digit(x, 10).unwrap()</td>
+        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td>x as f64</td>
       </tr>
       <tr>
         <th>String</th>
-        <td>x.parse::&lt;int>().unwrap()</td>
-        <td>x.parse::&lt;uint>().unwrap()</td>
+        <td>x.parse::&lt;i32>().unwrap()</td>
+        <td>x.parse::&lt;u32>().unwrap()</td>
         <td class="na">n/a</td>
         <td>x.char_at(0)</td>
         <td>x.parse::&lt;f64>().unwrap()</td>
       </tr>
       <tr>
         <th>char</th>
-        <td>Char::to_digit(x, 10).unwrap() as int</td>
-        <td>Char::to_digit(x, 10).unwrap()</td>
+        <td>Char::to_digit(x, 10).unwrap() as i32</td>
+        <td>Char::to_digit(x, 10).unwrap() as u32</td>
         <td>x.to_string()</td>
         <td class="na">n/a</td>
         <td>Char::to_digit(x, 10).unwrap() as f64</td>
       </tr>
       <tr>
         <th>f64</th>
-        <td>x as int</td>
-        <td>x as uint</td>
+        <td>x as i32</td>
+        <td>x as u32</td>
         <td>x.to_string()</td>
         <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td class="na">n/a</td>
@@ -77,8 +77,8 @@
 
   <section class="clearfix">
     <h2>&amp;str/String/collections::string::String</h2>
-    <p>Strings are... special. It's a long story that the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a> goes into.</p>
-    <p>I've pulled the string types out into a separate table because it's not possible to get an &amp;str without going through String, so it would add a lot of redundancy. Also, when converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have.</p>
+    <p>Strings are... special. It's a long story that the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a> goes i32o.</p>
+    <p>I've pulled the string types out i32o a separate table because it's not possible to get an &amp;str without going through String, so it would add a lot of redundancy. Also, when converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you i32end these to have.</p>
     <p>Also note that collections::string is re-exported as std::string, so if you get an error message saying "expected collections::string::String", that's the same as if the error message said "expected String".</p>
     <p>So. Here are the ways to convert between these when the lifetimes can be inferred:</p>
     <table>

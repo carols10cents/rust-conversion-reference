@@ -14,129 +14,129 @@ fn main() {
     let str: &str = st.as_slice();
 }
 
-// int ---------------------------------------------------------------
+// i32 ---------------------------------------------------------------
 #[allow(dead_code)]
-fn int_to_uint(x: int) -> uint {
-    x as uint
+fn i32_to_u32(x: i32) -> u32 {
+    x as u32
 }
 
 #[test]
-fn test_int_to_uint_happy() {
-    let x = 3i;
-    let y = 3u;
-    assert_eq!(y, int_to_uint(x));
+fn test_i32_to_u32_happy() {
+    let x = 3i32;
+    let y = 3u32;
+    assert_eq!(y, i32_to_u32(x));
 }
 
 #[allow(dead_code)]
-fn int_to_string(x: int) -> String {
+fn i32_to_string(x: i32) -> String {
     x.to_string()
 }
 
 #[test]
-fn test_int_to_string_happy() {
-    let x = 3i;
+fn test_i32_to_string_happy() {
+    let x = 3i32;
     let y = "3";
-    assert_eq!(y, int_to_string(x));
+    assert_eq!(y, i32_to_string(x));
 }
 
 #[allow(dead_code)]
-fn int_to_char(x: int) -> char {
+fn i32_to_char(x: i32) -> char {
     std::char::from_digit(x as uint, 10).unwrap()
 }
 
 #[test]
-fn test_int_to_char_happy() {
-    let x = 3i;
+fn test_i32_to_char_happy() {
+    let x = 3i32;
     let y = '3';
-    assert_eq!(y, int_to_char(x));
+    assert_eq!(y, i32_to_char(x));
 }
 
 #[allow(dead_code)]
-fn int_to_f64(x: int) -> f64 {
+fn i32_to_f64(x: i32) -> f64 {
     x as f64
 }
 
 #[test]
-fn test_int_to_f64_happy() {
-    let x = 3i;
+fn test_i32_to_f64_happy() {
+    let x = 3i32;
     let y = 3.0f64;
-    assert_eq!(y, int_to_f64(x));
+    assert_eq!(y, i32_to_f64(x));
 }
 
-// uint ---------------------------------------------------------------
+// u32 ---------------------------------------------------------------
 
 #[allow(dead_code)]
-fn uint_to_int(x: uint) -> int {
-    x as int
+fn u32_to_i32(x: u32) -> i32 {
+    x as i32
 }
 
 #[test]
-fn test_uint_to_int_happy() {
-    let x = 3u;
-    let y = 3i;
-    assert_eq!(y, uint_to_int(x));
+fn test_u32_to_i32_happy() {
+    let x = 3u32;
+    let y = 3i32;
+    assert_eq!(y, u32_to_i32(x));
 }
 
 #[allow(dead_code)]
-fn uint_to_string(x: uint) -> String {
+fn u32_to_string(x: u32) -> String {
     x.to_string()
 }
 
 #[test]
-fn test_uint_to_string_happy() {
-    let x = 3u;
+fn test_u32_to_string_happy() {
+    let x = 3u32;
     let y = "3";
-    assert_eq!(y, uint_to_string(x));
+    assert_eq!(y, u32_to_string(x));
 }
 
 #[allow(dead_code)]
-fn uint_to_char(x: uint) -> char {
-    std::char::from_digit(x, 10).unwrap()
+fn u32_to_char(x: u32) -> char {
+    std::char::from_digit(x as uint, 10).unwrap()
 }
 
 #[test]
-fn test_uint_to_char_happy() {
-    let x = 3u;
+fn test_u32_to_char_happy() {
+    let x = 3u32;
     let y = '3';
-    assert_eq!(y, uint_to_char(x));
+    assert_eq!(y, u32_to_char(x));
 }
 
 #[allow(dead_code)]
-fn uint_to_f64(x: uint) -> f64 {
+fn u32_to_f64(x: u32) -> f64 {
     x as f64
 }
 
 #[test]
-fn test_uint_to_f64_happy() {
-    let x = 3u;
+fn test_u32_to_f64_happy() {
+    let x = 3u32;
     let y = 3.0f64;
-    assert_eq!(y, uint_to_f64(x));
+    assert_eq!(y, u32_to_f64(x));
 }
 
 // String ---------------------------------------------------------------
 
 #[allow(dead_code)]
-fn string_to_int(x: String) -> int {
-    x.parse::<int>().unwrap()
+fn string_to_i32(x: String) -> i32 {
+    x.parse::<i32>().unwrap()
 }
 
 #[test]
-fn test_string_to_int_happy() {
+fn test_string_to_i32_happy() {
     let x = "3".to_string();
-    let y = 3i;
-    assert_eq!(y, string_to_int(x));
+    let y = 3i32;
+    assert_eq!(y, string_to_i32(x));
 }
 
 #[allow(dead_code)]
-fn string_to_uint(x: String) -> uint {
-    x.parse::<uint>().unwrap()
+fn string_to_u32(x: String) -> u32 {
+    x.parse::<u32>().unwrap()
 }
 
 #[test]
-fn test_string_to_uint_happy() {
+fn test_string_to_u32_happy() {
     let x = "3".to_string();
-    let y = 3u;
-    assert_eq!(y, string_to_uint(x));
+    let y = 3u32;
+    assert_eq!(y, string_to_u32(x));
 }
 
 #[allow(dead_code)]
@@ -166,27 +166,27 @@ fn test_string_to_f64_happy() {
 // char ---------------------------------------------------------------
 
 #[allow(dead_code)]
-fn char_to_int(x: char) -> int {
-    Char::to_digit(x, 10).unwrap() as int
+fn char_to_i32(x: char) -> i32 {
+    Char::to_digit(x, 10).unwrap() as i32
 }
 
 #[test]
-fn test_char_to_int_happy() {
+fn test_char_to_i32_happy() {
     let x = '3';
-    let y = 3i;
-    assert_eq!(y, char_to_int(x));
+    let y = 3i32;
+    assert_eq!(y, char_to_i32(x));
 }
 
 #[allow(dead_code)]
-fn char_to_uint(x: char) -> uint {
-    Char::to_digit(x, 10).unwrap()
+fn char_to_u32(x: char) -> u32 {
+    Char::to_digit(x, 10).unwrap() as u32
 }
 
 #[test]
-fn test_char_to_uint_happy() {
+fn test_char_to_u32_happy() {
     let x = '3';
-    let y = 3u;
-    assert_eq!(y, char_to_uint(x));
+    let y = 3u32;
+    assert_eq!(y, char_to_u32(x));
 }
 
 #[allow(dead_code)]
@@ -216,27 +216,27 @@ fn test_char_to_f64_happy() {
 // f64 ---------------------------------------------------------------
 
 #[allow(dead_code)]
-fn f64_to_int(x: f64) -> int {
-    x as int
+fn f64_to_i32(x: f64) -> i32 {
+    x as i32
 }
 
 #[test]
-fn test_f64_to_int_happy() {
+fn test_f64_to_i32_happy() {
     let x = 3.14f64;
-    let y = 3i;
-    assert_eq!(y, f64_to_int(x));
+    let y = 3i32;
+    assert_eq!(y, f64_to_i32(x));
 }
 
 #[allow(dead_code)]
-fn f64_to_uint(x: f64) -> uint {
-    x as uint
+fn f64_to_u32(x: f64) -> u32 {
+    x as u32
 }
 
 #[test]
-fn test_f64_to_uint_happy() {
+fn test_f64_to_u32_happy() {
     let x = 3.14f64;
-    let y = 3u;
-    assert_eq!(y, f64_to_uint(x));
+    let y = 3u32;
+    assert_eq!(y, f64_to_u32(x));
 }
 
 #[allow(dead_code)]
