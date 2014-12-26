@@ -1,5 +1,6 @@
 // This should fail to compile if any of these code examples are wrong.
 
+#[allow(dead_code)]
 fn main() {
     // Doing the string conversions all in main so that the lifetimes can be inferred.
 
@@ -13,7 +14,7 @@ fn main() {
 }
 
 // int ---------------------------------------------------------------
-
+#[allow(dead_code)]
 fn int_to_uint(x: int) -> uint {
     x as uint
 }
@@ -25,6 +26,7 @@ fn test_int_to_uint_happy() {
     assert_eq!(y, int_to_uint(x));
 }
 
+#[allow(dead_code)]
 fn int_to_string(x: int) -> String {
     x.to_string()
 }
@@ -36,6 +38,7 @@ fn test_int_to_string_happy() {
     assert_eq!(y, int_to_string(x));
 }
 
+#[allow(dead_code)]
 fn int_to_char(x: int) -> char {
     std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()
 }
@@ -49,6 +52,7 @@ fn test_int_to_char_happy() {
 
 // uint ---------------------------------------------------------------
 
+#[allow(dead_code)]
 fn uint_to_int(x: uint) -> int {
     x as int
 }
@@ -60,6 +64,7 @@ fn test_uint_to_int_happy() {
     assert_eq!(y, uint_to_int(x));
 }
 
+#[allow(dead_code)]
 fn uint_to_string(x: uint) -> String {
     x.to_string()
 }
@@ -71,6 +76,7 @@ fn test_uint_to_string_happy() {
     assert_eq!(y, uint_to_string(x));
 }
 
+#[allow(dead_code)]
 fn uint_to_char(x: uint) -> char {
     std::char::from_digit(x, 10).unwrap()
 }
@@ -84,6 +90,7 @@ fn test_uint_to_char_happy() {
 
 // String ---------------------------------------------------------------
 
+#[allow(dead_code)]
 fn string_to_int(x: String) -> int {
     x.parse::<int>().unwrap()
 }
@@ -95,6 +102,7 @@ fn test_string_to_int_happy() {
     assert_eq!(y, string_to_int(x));
 }
 
+#[allow(dead_code)]
 fn string_to_uint(x: String) -> uint {
     x.parse::<uint>().unwrap()
 }
@@ -106,6 +114,7 @@ fn test_string_to_uint_happy() {
     assert_eq!(y, string_to_uint(x));
 }
 
+#[allow(dead_code)]
 fn string_to_char(x: String) -> char {
     x.char_at(0)
 }
@@ -119,6 +128,7 @@ fn test_string_to_char_happy() {
 
 // char ---------------------------------------------------------------
 
+#[allow(dead_code)]
 fn char_to_int(x: char) -> int {
     std::char::to_digit(x, 10).unwrap().to_int().unwrap()
 }
@@ -130,6 +140,7 @@ fn test_char_to_int_happy() {
     assert_eq!(y, char_to_int(x));
 }
 
+#[allow(dead_code)]
 fn char_to_uint(x: char) -> uint {
     std::char::to_digit(x, 10).unwrap()
 }
@@ -141,6 +152,7 @@ fn test_char_to_uint_happy() {
     assert_eq!(y, char_to_uint(x));
 }
 
+#[allow(dead_code)]
 fn char_to_string(x: char) -> String {
     x.to_string()
 }
