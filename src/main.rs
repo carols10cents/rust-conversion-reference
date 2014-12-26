@@ -85,7 +85,7 @@ fn test_uint_to_char_happy() {
 // String ---------------------------------------------------------------
 
 fn string_to_int(x: String) -> int {
-    x.parse().unwrap()
+    x.parse::<int>().unwrap()
 }
 
 #[test]
@@ -96,7 +96,7 @@ fn test_string_to_int_happy() {
 }
 
 fn string_to_uint(x: String) -> uint {
-    x.parse().unwrap()
+    x.parse::<uint>().unwrap()
 }
 
 #[test]
