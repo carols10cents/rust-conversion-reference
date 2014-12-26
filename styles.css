@@ -16,6 +16,7 @@ table, th, td {
 }
 th, td {
   padding: 10px;
+  white-space: nowrap;
 }
 th {
   font-style: bold;
