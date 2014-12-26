@@ -51,6 +51,18 @@ fn test_int_to_char_happy() {
     assert_eq!(y, int_to_char(x));
 }
 
+#[allow(dead_code)]
+fn int_to_f64(x: int) -> f64 {
+    x as f64
+}
+
+#[test]
+fn test_int_to_f64_happy() {
+    let x = 3i;
+    let y = 3.0f64;
+    assert_eq!(y, int_to_f64(x));
+}
+
 // uint ---------------------------------------------------------------
 
 #[allow(dead_code)]
@@ -87,6 +99,18 @@ fn test_uint_to_char_happy() {
     let x = 3u;
     let y = '3';
     assert_eq!(y, uint_to_char(x));
+}
+
+#[allow(dead_code)]
+fn uint_to_f64(x: uint) -> f64 {
+    x as f64
+}
+
+#[test]
+fn test_uint_to_f64_happy() {
+    let x = 3u;
+    let y = 3.0f64;
+    assert_eq!(y, uint_to_f64(x));
 }
 
 // String ---------------------------------------------------------------
@@ -127,6 +151,18 @@ fn test_string_to_char_happy() {
     assert_eq!(y, string_to_char(x));
 }
 
+#[allow(dead_code)]
+fn string_to_f64(x: String) -> f64 {
+    x.parse::<f64>().unwrap()
+}
+
+#[test]
+fn test_string_to_f64_happy() {
+    let x = "3.14".to_string();
+    let y = 3.14f64;
+    assert_eq!(y, string_to_f64(x));
+}
+
 // char ---------------------------------------------------------------
 
 #[allow(dead_code)]
@@ -163,4 +199,66 @@ fn test_char_to_string_happy() {
     let x = '3';
     let y = "3";
     assert_eq!(y, char_to_string(x));
+}
+
+#[allow(dead_code)]
+fn char_to_f64(x: char) -> f64 {
+    Char::to_digit(x, 10).unwrap() as f64
+}
+
+#[test]
+fn test_char_to_f64_happy() {
+    let x = '3';
+    let y = 3.0f64;
+    assert_eq!(y, char_to_f64(x));
+}
+
+// f64 ---------------------------------------------------------------
+
+#[allow(dead_code)]
+fn f64_to_int(x: f64) -> int {
+    x as int
+}
+
+#[test]
+fn test_f64_to_int_happy() {
+    let x = 3.14f64;
+    let y = 3i;
+    assert_eq!(y, f64_to_int(x));
+}
+
+#[allow(dead_code)]
+fn f64_to_uint(x: f64) -> uint {
+    x as uint
+}
+
+#[test]
+fn test_f64_to_uint_happy() {
+    let x = 3.14f64;
+    let y = 3u;
+    assert_eq!(y, f64_to_uint(x));
+}
+
+#[allow(dead_code)]
+fn f64_to_string(x: f64) -> String {
+    x.to_string()
+}
+
+#[test]
+fn test_f64_to_string_happy() {
+    let x = 3.14f64;
+    let y = "3.14";
+    assert_eq!(y, f64_to_string(x));
+}
+
+#[allow(dead_code)]
+fn f64_to_char(x: f64) -> char {
+    std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()
+}
+
+#[test]
+fn test_f64_to_char_happy() {
+    let x = 3.0f64;
+    let y = '3';
+    assert_eq!(y, f64_to_char(x));
 }

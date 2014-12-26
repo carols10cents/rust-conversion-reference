@@ -39,6 +39,7 @@
         <th>uint</th>
         <th>String</th>
         <th>char</th>
+        <th>f64</th>
       </tr>
       <!-- Template for a new type
       <tr>
@@ -47,6 +48,7 @@
         <td>uint</td>
         <td>String</td>
         <td>char</td>
+        <td>f64</td>
         <td class="na">n/a</td>
       </tr>
       -->
@@ -56,6 +58,7 @@
         <td>x as uint</td>
         <td>x.to_string()</td>
         <td>std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()</td>
+        <td>x as f64</td>
       </tr>
       <tr>
         <th>uint</th>
@@ -63,6 +66,7 @@
         <td class="na">n/a</td>
         <td>x.to_string()</td>
         <td>std::char::from_digit(x, 10).unwrap()</td>
+        <td>x as f64</td>
       </tr>
       <tr>
         <th>String</th>
@@ -70,12 +74,22 @@
         <td>x.parse::&lt;uint>().unwrap()</td>
         <td class="na">n/a</td>
         <td>x.char_at(0)</td>
+        <td>x.parse::<f64>().unwrap()</td>
       </tr>
       <tr>
         <th>char</th>
         <td>Char::to_digit(x, 10).unwrap().to_int().unwrap()</td>
         <td>Char::to_digit(x, 10).unwrap()</td>
         <td>x.to_string()</td>
+        <td class="na">n/a</td>
+        <td>Char::to_digit(x, 10).unwrap() as f64</td>
+      </tr>
+      <tr>
+        <th>f64</th>
+        <td>x as int</td>
+        <td>x as uint</td>
+        <td>x.to_string()</td>
+        <td>std::char::from_digit(x.to_uint().unwrap(), 10).unwrap()</td>
         <td class="na">n/a</td>
       </tr>
     </table>
