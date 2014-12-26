@@ -131,7 +131,7 @@ fn test_string_to_char_happy() {
 
 #[allow(dead_code)]
 fn char_to_int(x: char) -> int {
-    std::char::to_digit(x, 10).unwrap().to_int().unwrap()
+    Char::to_digit(x, 10).unwrap().to_int().unwrap()
 }
 
 #[test]
@@ -143,7 +143,7 @@ fn test_char_to_int_happy() {
 
 #[allow(dead_code)]
 fn char_to_uint(x: char) -> uint {
-    std::char::to_digit(x, 10).unwrap()
+    Char::to_digit(x, 10).unwrap()
 }
 
 #[test]
