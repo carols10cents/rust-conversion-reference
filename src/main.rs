@@ -1,6 +1,7 @@
 // This should fail to compile if any of these code examples are wrong.
 
 #[allow(dead_code)]
+#[allow(unused_variables)]
 fn main() {
     // Doing the string conversions all in main so that the lifetimes can be inferred.
 
