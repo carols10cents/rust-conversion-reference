@@ -1,15 +1,28 @@
 body {
   font-family: Garamond, Georgia, Times, "Times New Roman", serif;
-  padding: 35px 60px;
+  padding: 75px 100px;
+  font-size: 16px;
+}
+h1 {
+  font-size: 200%;
+  font-weight: bold;
+}
+h2 {
+  font-size: 150%;
+  font-weight: bold;
 }
 section {
-  margin: 50px 0;
+  margin: 40px 0;
+  width: 700px;
+  position: relative;
 }
 p {
-  width: 550px;
+  margin: 20px 0;
 }
 table {
   border-collapse: collapse;
+  float: left;
+  clear: right;
 }
 table, th, td {
   border: 1px solid #999;
@@ -28,4 +41,20 @@ td.na {
   font-family: Garamond, Georgia, Times, "Times New Roman", serif;
   color: #888;
   background: #efefef;
+}
+.sticky-column {
+  width: 180px;
+  clear: none;
+  margin-top: 19px;
+}
+.sticky-container {
+  width: 500px;
+  overflow-x: auto;
+}
+.sticky-column th.tall,
+.sticky-container th {
+  height: 60px;
+}
+.sticky-container span {
+  margin-left: 20px;
 }

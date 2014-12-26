@@ -1,12 +1,13 @@
 <html>
 <head>
   <title>Rust Conversion Reference</title>
+  <link rel="stylesheet" type="text/css" href="reset.css" />
   <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
   <h1>Rust Conversion Reference</h1>
   <strong>valid with rustc 0.13.0-dev (f673e9841 2014-12-25 14:21:47 +0000)</strong>
-  <section>
+  <section class="clearfix">
     <h2>&amp;str/String/collections::string::String</h2>
     <p>Strings can be of variable size, so they behave differently than the fixed size primitives. There is more information about these in the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a>. When converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have. </p>
     <p>Also note that collections::string is re-exported as std::string, so if you get an error message saying "expected collections::string::String", that's the same as if the error message said "expected String".</p>
@@ -30,76 +31,94 @@
     </table>
   </section>
 
-  <section>
+  <section class="clearfix">
     <h2>Everything else</h2>
     <p>There are many ways to convert these types between each other; these are the most straightforward, least surprising ones I've found. Please see <a href="https://github.com/carols10cents/rust-conversion-reference/blob/gh-pages/src/main.rs">the happy path test cases</a> for what I expect their behavior to be.</p>
     <p><strong>These conversions *will* panic if the conversion can't be performed on the input you supply!</strong></p>
-    <table>
+    <table class="sticky-column">
       <tr>
-        <th>Want x to be &#9654;<br/>Have an x of type &#9660;</th>
-        <th>int</th>
-        <th>uint</th>
-        <th>String</th>
-        <th>char</th>
-        <th>f64</th>
+        <th class="tall">Want x to be &#9654;<br/>Have an x of type &#9660;</th>
       </tr>
-      <!-- Template for a new type
-      <tr>
-        <th>new</th>
-        <td>int</td>
-        <td>uint</td>
-        <td>String</td>
-        <td>char</td>
-        <td>f64</td>
-        <td class="na">n/a</td>
-      </tr>
-      -->
       <tr>
         <th>int</th>
-        <td class="na">n/a</td>
-        <td>x as uint</td>
-        <td>x.to_string()</td>
-        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
-        <td>x as f64</td>
       </tr>
       <tr>
         <th>uint</th>
-        <td>x as int</td>
-        <td class="na">n/a</td>
-        <td>x.to_string()</td>
-        <td>std::char::from_digit(x, 10).unwrap()</td>
-        <td>x as f64</td>
       </tr>
       <tr>
         <th>String</th>
-        <td>x.parse::&lt;int>().unwrap()</td>
-        <td>x.parse::&lt;uint>().unwrap()</td>
-        <td class="na">n/a</td>
-        <td>x.char_at(0)</td>
-        <td>x.parse::&lt;f64>().unwrap()</td>
       </tr>
       <tr>
         <th>char</th>
-        <td>Char::to_digit(x, 10).unwrap() as int</td>
-        <td>Char::to_digit(x, 10).unwrap()</td>
-        <td>x.to_string()</td>
-        <td class="na">n/a</td>
-        <td>Char::to_digit(x, 10).unwrap() as f64</td>
       </tr>
       <tr>
         <th>f64</th>
-        <td>x as int</td>
-        <td>x as uint</td>
-        <td>x.to_string()</td>
-        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
-        <td class="na">n/a</td>
       </tr>
     </table>
+    <div class="sticky-container">
+      <span>Scroll me! >>>></span>
+      <table>
+        <!-- Template for a new type
+        <tr>
+          <th>new</th>
+          <td>int</td>
+          <td>uint</td>
+          <td>String</td>
+          <td>char</td>
+          <td>f64</td>
+          <td class="na">n/a</td>
+        </tr>
+        -->
+        <tr>
+          <th>int</th>
+          <th>uint</th>
+          <th>String</th>
+          <th>char</th>
+          <th>f64</th>
+        </tr>
+        <tr>
+          <td class="na">n/a</td>
+          <td>x as uint</td>
+          <td>x.to_string()</td>
+          <td>std::char::from_digit(x as uint, 10).unwrap()</td>
+          <td>x as f64</td>
+        </tr>
+        <tr>
+          <td>x as int</td>
+          <td class="na">n/a</td>
+          <td>x.to_string()</td>
+          <td>std::char::from_digit(x, 10).unwrap()</td>
+          <td>x as f64</td>
+        </tr>
+        <tr>
+          <td>x.parse::&lt;int>().unwrap()</td>
+          <td>x.parse::&lt;uint>().unwrap()</td>
+          <td class="na">n/a</td>
+          <td>x.char_at(0)</td>
+          <td>x.parse::&lt;f64>().unwrap()</td>
+        </tr>
+        <tr>
+          <td>Char::to_digit(x, 10).unwrap() as int</td>
+          <td>Char::to_digit(x, 10).unwrap()</td>
+          <td>x.to_string()</td>
+          <td class="na">n/a</td>
+          <td>Char::to_digit(x, 10).unwrap() as f64</td>
+        </tr>
+        <tr>
+          <td>x as int</td>
+          <td>x as uint</td>
+          <td>x.to_string()</td>
+          <td>std::char::from_digit(x as uint, 10).unwrap()</td>
+          <td class="na">n/a</td>
+        </tr>
+      </table>
+    </div>
   </section>
-  <section>
-    <p>I'm just a person who makes mistakes just like you, and rust changes frequently, so if something on this page isn't right, please <a href="https://github.com/carols10cents/rust-conversion-reference/edit/gh-pages/index.html">make a correction</a>!</p>
+  <section class="clearfix">
+    <p>I hope you find this helpful! &lt;3</p>
+    <p>I'm just a person who makes mistakes just like you, and Rust changes frequently, so if something on this page isn't right, please <a href="https://github.com/carols10cents/rust-conversion-reference/edit/gh-pages/index.html">make a correction</a>!</p>
     <p>This is not an official Rust project.</p>
   </section>
-  <a href="https://github.com/carols10cents/rust-conversion-reference"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  <a href="https://github.com/carols10cents/rust-conversion-reference"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
 </body>
 </html>
