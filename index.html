@@ -11,7 +11,7 @@
   <section class="clearfix">
     <h2>Primitives</h2>
     <p>There are many ways to convert these types between each other; these are the most straightforward, least surprising ones I've found. Please see <a href="https://github.com/carols10cents/rust-conversion-reference/blob/gh-pages/src/main.rs">the happy path test cases</a> for what I expect their behavior to be.</p>
-    <p><strong>These conversions *will* panic if the conversion can't be performed on the input you supply!</strong></p>
+    <p><strong>Some of these conversions, the ones that use .unwrap(), may panic if the conversion can't be performed on the input you supply!</strong></p>
     <table>
       <!-- Template for a new type
       <tr>
