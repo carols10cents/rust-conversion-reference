@@ -19,7 +19,6 @@
         <td>i32</td>
         <td>u32</td>
         <td>String</td>
-        <td>char</td>
         <td>f64</td>
         <td class="na">n/a</td>
       </tr>
@@ -29,7 +28,6 @@
         <th>i32</th>
         <th>u32</th>
         <th>String</th>
-        <th>char</th>
         <th>f64</th>
       </tr>
       <tr>
@@ -37,7 +35,6 @@
         <td class="na">n/a</td>
         <td>x as u32</td>
         <td>x.to_string()</td>
-        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td>x as f64</td>
       </tr>
       <tr>
@@ -45,7 +42,6 @@
         <td>x as i32</td>
         <td class="na">n/a</td>
         <td>x.to_string()</td>
-        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td>x as f64</td>
       </tr>
       <tr>
@@ -53,23 +49,13 @@
         <td>x.parse::&lt;i32>().unwrap()</td>
         <td>x.parse::&lt;u32>().unwrap()</td>
         <td class="na">n/a</td>
-        <td>x.char_at(0)</td>
         <td>x.parse::&lt;f64>().unwrap()</td>
-      </tr>
-      <tr>
-        <th>char</th>
-        <td>Char::to_digit(x, 10).unwrap() as i32</td>
-        <td>Char::to_digit(x, 10).unwrap() as u32</td>
-        <td>x.to_string()</td>
-        <td class="na">n/a</td>
-        <td>Char::to_digit(x, 10).unwrap() as f64</td>
       </tr>
       <tr>
         <th>f64</th>
         <td>x as i32</td>
         <td>x as u32</td>
         <td>x.to_string()</td>
-        <td>std::char::from_digit(x as uint, 10).unwrap()</td>
         <td class="na">n/a</td>
       </tr>
     </table>
