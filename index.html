@@ -45,11 +45,11 @@
         <td>x as f64</td>
       </tr>
       <tr>
-        <th>String</th>
-        <td>x.parse::&lt;i32>().unwrap()</td>
-        <td>x.parse::&lt;u32>().unwrap()</td>
+        <th>String*</th>
+        <td>x.parse().unwrap()</td>
+        <td>x.parse().unwrap()</td>
         <td class="na">n/a</td>
-        <td>x.parse::&lt;f64>().unwrap()</td>
+        <td>x.parse().unwrap()</td>
       </tr>
       <tr>
         <th>f64</th>
@@ -59,6 +59,8 @@
         <td class="na">n/a</td>
       </tr>
     </table>
+
+    <p>* Observant readers will notice that yes, the code for converting Strings to i32, u32, AND f64 is all the same-- how can that be??? Type inference! If Rust can't infer the type that you're trying to get from the context in which you're using it, you can give it a hint by doing, for example, <code>x.parse::&lt;i32>().unwrap()</code>, but that usually isn't necessary.</p>
   </section>
 
   <section class="clearfix">

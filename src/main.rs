@@ -93,7 +93,7 @@ fn test_u32_to_f64_happy() {
 
 #[allow(dead_code)]
 fn string_to_i32(x: String) -> i32 {
-    x.parse::<i32>().unwrap()
+    x.parse().unwrap()
 }
 
 #[test]
@@ -105,7 +105,7 @@ fn test_string_to_i32_happy() {
 
 #[allow(dead_code)]
 fn string_to_u32(x: String) -> u32 {
-    x.parse::<u32>().unwrap()
+    x.parse().unwrap()
 }
 
 #[test]
@@ -117,7 +117,7 @@ fn test_string_to_u32_happy() {
 
 #[allow(dead_code)]
 fn string_to_f64(x: String) -> f64 {
-    x.parse::<f64>().unwrap()
+    x.parse().unwrap()
 }
 
 #[test]

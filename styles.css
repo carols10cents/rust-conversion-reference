@@ -21,8 +21,6 @@ p {
 }
 table {
   border-collapse: collapse;
-  float: left;
-  clear: right;
 }
 table, th, td {
   border: 1px solid #999;
