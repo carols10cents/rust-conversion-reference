@@ -12,7 +12,7 @@
     <h2>Primitives</h2>
     <p>There are many ways to convert these types between each other; these are the most straightforward, least surprising ones I've found. Please see <a href="https://github.com/carols10cents/rust-conversion-reference/blob/gh-pages/src/main.rs">the happy path test cases</a> for what I expect their behavior to be.</p>
     <p><strong>Some of these conversions, the ones that use .unwrap(), may panic if the conversion can't be performed on the input you supply!</strong></p>
-    <table>
+    <table class="autocode">
       <!-- Template for a new type
       <tr>
         <th>new</th>
@@ -61,6 +61,33 @@
     </table>
 
     <p>* Observant readers will notice that yes, the code for converting Strings to i32, u32, AND f64 is all the same-- how can that be??? Type inference! If Rust can't infer the type that you're trying to get from the context in which you're using it, you can give it a hint by doing, for example, <code>x.parse::&lt;i32>().unwrap()</code>, but that usually isn't necessary.</p>
+  </section>
+
+  <section class="clearfix">
+    <h2>Options</h2>
+    <p>If you have a variable x, and you get the message <code>expected `type`, found `core::option::Option&lt;type>`</code>, you can use the following code with the following consequences. There is more detail and more ways to handle <code>Options</code> in the <a href="http://doc.rust-lang.org/guide-error-handling.html">Error Handling guide</a>.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th class="nowrap">Consequence when you get <code>None</code></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>x.unwrap_or(put_default_value_here)</code></td>
+          <td>You will get the value you put where it says <code>put_default_value_here</code>.</td>
+        </tr>
+        <tr>
+          <td><code>x.expect("My Custom Error Message")</code></td>
+          <td>Panic with a custom error message</td>
+        </tr>
+        <tr>
+          <td><code>x.unwrap()</code></td>
+          <td>Panic (not recommended in production code, handle your error cases!)</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="clearfix">

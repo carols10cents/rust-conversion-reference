@@ -1,5 +1,7 @@
 // This should fail to compile if any of these code examples are wrong.
 
+use std::io::fs;
+
 #[allow(dead_code)]
 #[allow(unused_variables)]
 fn main() {
@@ -163,4 +165,44 @@ fn test_f64_to_string_happy() {
     let x = 3.14f64;
     let y = "3.14";
     assert_eq!(y, f64_to_string(x));
+}
+
+// Option --------------------------------------------------------
+
+#[test]
+fn test_parse_option_handling_with_default_some() {
+    let x: i32 = "1".parse().unwrap_or(0);
+    assert_eq!(x, 1);
+}
+
+#[test]
+fn test_parse_option_handling_with_default_none() {
+    let x: i32 = "not a number".parse().unwrap_or(0);
+    assert_eq!(x, 0);
+}
+
+#[test]
+fn test_parse_option_handling_expect_some() {
+    let x: i32 = "1".parse().expect("Parsing int from string failed");
+    assert_eq!(x, 1);
+}
+
+#[test]
+#[should_fail(expected = "Parsing int from string failed")]
+#[allow(unused_variables)]
+fn test_parse_option_handling_expect_none() {
+    let x: i32 = "not a number".parse().expect("Parsing int from string failed");
+}
+
+#[test]
+fn test_parse_option_handling_unwrap_some() {
+    let x: i32 = "1".parse().unwrap();
+    assert_eq!(x, 1);
+}
+
+#[test]
+#[should_fail(expected = "called `Option::unwrap()` on a `None` value")]
+#[allow(unused_variables)]
+fn test_parse_option_handling_unwrap_none() {
+    let x: i32 = "not a number".parse().unwrap();
 }
