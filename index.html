@@ -96,7 +96,7 @@
     <p>I've pulled the string types out into a separate table because it's not possible to get an &amp;str without going through String, so it would add a lot of redundancy. Also, when converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have.</p>
     <p>Also note that collections::string is re-exported as std::string, so if you get an error message saying "expected collections::string::String", that's the same as if the error message said "expected String".</p>
     <p>So. Here are the ways to convert between these when the lifetimes can be inferred:</p>
-    <table>
+    <table class="autocode">
       <tr>
         <th>Want x to be &#9654;<br />Have an x of type &#9660;</th>
         <th>String</th>
