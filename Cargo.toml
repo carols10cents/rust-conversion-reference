@@ -1,7 +1,7 @@
 [package]
 
 name = "rust-conversion-reference"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Carol (Nichols || Goulding) <carol.nichols@gmail.com>"]
 description = "How to convert any thing to any other thing in rust."
 repository = "https://github.com/carols10cents/rust-conversion-reference"
