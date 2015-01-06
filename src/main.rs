@@ -205,7 +205,7 @@ fn test_parse_option_handling_unwrap_none() {
     let x: i32 = "not a number".parse().unwrap();
 }
 
-// vectors ---------------------------------------------------------
+// Vectors ---------------------------------------------------------
 
 #[test]
 fn test_vec_to_slice_happy() {
