@@ -116,6 +116,28 @@
   </section>
 
   <section class="clearfix">
+    <h2>Vec&lt;T>/&amp;[T]</h2>
+    <table class="autocode">
+      <tr>
+        <th>Want x to be &#9654;<br />Have an x of type &#9660;</th>
+        <th>Vec&lt;T></th>
+        <th>&amp;[T]</th>
+      </tr>
+      <tr>
+        <th>Vec&lt;T></th>
+        <td class="na">n/a</td>
+        <td>x.as_slice()</td>
+      </tr>
+      <tr>
+        <th>&amp;[T]</th>
+        <td>x.into_vec()</td>
+        <td class="na">n/a</td>
+      </tr>
+    </table>
+    <p>Bare [T], referring to some number of T in contiguous memory, are rarely useful. Usually, you want a "borrowed slice", &amp;[T], which consists of a pointer to that memory and a count of the number of T present.  If you somehow have a [T] and need &amp;[T] instead, simply use &amp;x.</p>
+  </section>
+
+  <section class="clearfix">
     <p>I hope you find this helpful! &lt;3</p>
     <p>I'm just a person who makes mistakes just like you, and Rust changes frequently, so if something on this page isn't right, please <a href="https://github.com/carols10cents/rust-conversion-reference/edit/gh-pages/index.html">make a correction</a>!</p>
     <p>This is not an official Rust project.</p>
