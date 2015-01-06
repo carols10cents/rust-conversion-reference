@@ -1,7 +1,5 @@
 // This should fail to compile if any of these code examples are wrong.
 
-use std::io::fs;
-
 #[allow(dead_code)]
 #[allow(unused_variables)]
 fn main() {
