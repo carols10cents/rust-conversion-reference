@@ -6,12 +6,12 @@
 </head>
 <body>
   <h1>Rust Conversion Reference</h1>
-  <strong>valid with rustc 0.13.0-dev (f673e9841 2014-12-25 14:21:47 +0000)</strong>
+  <strong>valid with rustc 0.13.0-nightly (ad9e75938 2015-01-05 00:26:28 +0000)</strong>
 
   <section class="clearfix">
     <h2>Primitives</h2>
     <p>There are many ways to convert these types between each other; these are the most straightforward, least surprising ones I've found. Please see <a href="https://github.com/carols10cents/rust-conversion-reference/blob/gh-pages/src/main.rs">the happy path test cases</a> for what I expect their behavior to be.</p>
-    <p><strong>Some of these conversions, the ones that use .unwrap(), may panic if the conversion can't be performed on the input you supply!</strong></p>
+    <p><strong>Some of these conversions, the ones that use <code>.unwrap()</code>, may panic if the conversion can't be performed on the input you supply!</strong></p>
     <table class="autocode">
       <!-- Template for a new type
       <tr>
@@ -60,12 +60,12 @@
       </tr>
     </table>
 
-    <p>* Observant readers will notice that yes, the code for converting Strings to i32, u32, AND f64 is all the same-- how can that be??? Type inference! If Rust can't infer the type that you're trying to get from the context in which you're using it, you can give it a hint by doing, for example, <code>x.parse::&lt;i32>().unwrap()</code>, but that usually isn't necessary.</p>
+    <p>* Observant readers will notice that yes, the code for converting Strings to i32, u32, AND f64 is all the same &mdash; how can that be??? Type inference! If Rust can't infer the type that you're trying to get from the context in which you're using it, you can give it a hint by doing, for example, <code>x.parse::&lt;i32>().unwrap()</code>, but that usually isn't necessary.</p>
   </section>
 
   <section class="clearfix">
     <h2>Options</h2>
-    <p>If you have a variable x, and you get the message <code>expected `type`, found `core::option::Option&lt;type>`</code>, you can use the following code with the following consequences. There is more detail and more ways to handle <code>Options</code> in the <a href="http://doc.rust-lang.org/guide-error-handling.html">Error Handling guide</a>.</p>
+    <p>If you have a variable <code>x</code>, and you get the message "<code>expected `type`, found `core::option::Option&lt;type>`</code>", you can use the following code with the following consequences. There is more detail and more ways to handle <code>Options</code> in the <a href="http://doc.rust-lang.org/guide-error-handling.html">Error Handling guide</a>.</p>
     <table>
       <thead>
         <tr>
@@ -94,7 +94,7 @@
     <h2>&amp;str/String/collections::string::String</h2>
     <p>Strings are... special. It's a long story that the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a> goes into.</p>
     <p>I've pulled the string types out into a separate table because it's not possible to get an &amp;str without going through String, so it would add a lot of redundancy. Also, when converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have.</p>
-    <p>Also note that collections::string is re-exported as std::string, so if you get an error message saying "expected collections::string::String", that's the same as if the error message said "expected String".</p>
+    <p>Also note that <code>collections::string</code> is re-exported as <code>std::string</code>, so if you get an error message saying "<code>expected collections::string::String</code>", that's the same as if the error message said "<code>expected String</code>".</p>
     <p>So. Here are the ways to convert between these when the lifetimes can be inferred:</p>
     <table class="autocode">
       <tr>
@@ -130,11 +130,11 @@
       </tr>
       <tr>
         <th>&amp;[T]</th>
-        <td>x.into_vec()</td>
+        <td>x.to_vec()</td>
         <td class="na">n/a</td>
       </tr>
     </table>
-    <p>Bare [T], referring to some number of T in contiguous memory, are rarely useful. Usually, you want a "borrowed slice", &amp;[T], which consists of a pointer to that memory and a count of the number of T present.  If you somehow have a [T] and need &amp;[T] instead, simply use &amp;x.</p>
+    <p>Bare [T], referring to some number of T in contiguous memory, are rarely useful. Usually, you want a "borrowed slice", &amp;[T], which consists of a pointer to that memory and a count of the number of T present.  If you somehow have a [T] and need &amp;[T] instead, simply use <code>&amp;x</code>.</p>
   </section>
 
   <section class="clearfix">

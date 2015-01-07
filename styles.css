@@ -32,7 +32,7 @@ th, td {
 th {
   font-style: bold;
 }
-.autocode td {
+code, .autocode td {
   font-family: Courier, "Courier New", monospace;
 }
 td.na {

@@ -205,11 +205,18 @@ fn test_parse_option_handling_unwrap_none() {
     let x: i32 = "not a number".parse().unwrap();
 }
 
-// vectors ---------------------------------------------------------
+// Vectors ---------------------------------------------------------
 
 #[test]
 fn test_vec_to_slice_happy() {
     let x = vec!(1u8, 2u8, 3u8);
     static Y: &'static [u8] = &[1, 2, 3];
     assert_eq!(Y, x.as_slice());
+}
+
+#[test]
+fn test_slice_to_vec_happy() {
+    let x = &[1u8, 2, 3];
+    let y = vec!(1u8, 2u8, 3u8);
+    assert_eq!(y, x.to_vec());
 }
