@@ -116,21 +116,30 @@
   </section>
 
   <section class="clearfix">
-    <h2>Vec&lt;T>/&amp;[T]</h2>
+    <h2>Vec&lt;T>/&amp;[T]/Box&lt;[T]></h2>
     <table class="autocode">
       <tr>
         <th>Want x to be &#9654;<br />Have an x of type &#9660;</th>
         <th>Vec&lt;T></th>
         <th>&amp;[T]</th>
+        <th>Box&lt;[T]></th>
       </tr>
       <tr>
         <th>Vec&lt;T></th>
         <td class="na">n/a</td>
         <td>x.as_slice()</td>
+        <td>x.into_boxed_slice()</td>
       </tr>
       <tr>
         <th>&amp;[T]</th>
         <td>x.to_vec()</td>
+        <td class="na">n/a</td>
+        <td>box *x</td>
+      </tr>
+      <tr>
+        <th>Box&lt;[T]></th>
+        <td>x.into_vec()</td>
+        <td>&amp;*x</td>
         <td class="na">n/a</td>
       </tr>
     </table>
