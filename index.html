@@ -65,7 +65,7 @@
 
   <section class="clearfix">
     <h2>Options</h2>
-    <p>If you have a variable <code>x</code>, and you get the message "<code>expected `type`, found `core::option::Option&lt;type>`</code>", you can use the following code with the following consequences. There is more detail and more ways to handle <code>Options</code> in the <a href="http://doc.rust-lang.org/guide-error-handling.html">Error Handling guide</a>.</p>
+    <p>If you have a variable <code>x</code>, and you get the message "<code>expected `type`, found `core::option::Option&lt;type>`</code>", you can use the following code with the following consequences. There is more detail and more ways to handle <code>Options</code> in the <a href="http://doc.rust-lang.org/book/error-handling.html">Error Handling section of the Rust Programming Language book</a>.</p>
     <table>
       <thead>
         <tr>
@@ -92,7 +92,7 @@
 
   <section class="clearfix">
     <h2>&amp;str/String/collections::string::String</h2>
-    <p>Strings are... special. It's a long story that the <a href="http://doc.rust-lang.org/guide.html#strings">Rust Guide on Strings</a> goes into.</p>
+    <p>Strings are... special. It's a long story that the <a href="http://doc.rust-lang.org/book/strings.html">Strings section of the Rust Programming Language book</a> goes into.</p>
     <p>I've pulled the string types out into a separate table because it's not possible to get an &amp;str without going through String, so it would add a lot of redundancy. Also, when converting between string slices (&amp;str) and in-memory strings (String), you will need to consider the lifetime you intend these to have.</p>
     <p>Also note that <code>collections::string</code> is re-exported as <code>std::string</code>, so if you get an error message saying "<code>expected collections::string::String</code>", that's the same as if the error message said "<code>expected String</code>".</p>
     <p>So. Here are the ways to convert between these when the lifetimes can be inferred:</p>
