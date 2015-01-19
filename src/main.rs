@@ -217,7 +217,7 @@ fn test_vec_to_slice_happy() {
 #[test]
 fn test_vec_to_boxedslice_happy() {
     let x = vec!(1u8, 2u8, 3u8);
-    let y: Box<[u8]> = box [1u8, 2, 3];
+    let y: Box<[u8]> = Box::new([1u8, 2, 3]);
     assert_eq!(y, x.into_boxed_slice());
 }
 
@@ -231,20 +231,20 @@ fn test_slice_to_vec_happy() {
 #[test]
 fn test_slice_to_boxedslice_happy() {
     let x = &[1u8, 2, 3];
-    let y = box [1u8, 2, 3];
-    assert_eq!(y, box *x);
+    let y = Box::new([1u8, 2, 3]);
+    assert_eq!(y, Box::new(*x));
 }
 
 #[test]
 fn test_boxedslice_to_vec_happy() {
-    let x: Box<[u8]> = box [1u8, 2, 3];
+    let x: Box<[u8]> = Box::new([1u8, 2, 3]);
     let y = vec!(1u8, 2u8, 3u8);
     assert_eq!(y, x.into_vec());
 }
 
 #[test]
 fn test_boxedslice_to_slice_happy() {
-    let x: Box<[u8]> = box [1u8, 2, 3];
+    let x: Box<[u8]> = Box::new([1u8, 2, 3]);
     let y = [1u8, 2, 3];
     assert_eq!(y, &*x);
 }
