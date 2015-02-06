@@ -1,3 +1,6 @@
+#![feature(core)]
+#![feature(collections)]
+
 // This should fail to compile if any of these code examples are wrong.
 
 #[allow(dead_code)]
