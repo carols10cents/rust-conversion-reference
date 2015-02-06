@@ -168,20 +168,20 @@ fn test_f64_to_string_happy() {
 // Option --------------------------------------------------------
 
 #[test]
-fn test_parse_option_handling_with_default_some() {
-    let x: i32 = "1".parse().unwrap_or(0);
+fn test_option_handling_with_default_some() {
+    let x = Some(1).unwrap_or(0);
     assert_eq!(x, 1);
 }
 
 #[test]
 fn test_parse_option_handling_with_default_none() {
-    let x: i32 = "not a number".parse().unwrap_or(0);
+    let x = None.unwrap_or(0);
     assert_eq!(x, 0);
 }
 
 #[test]
 fn test_parse_option_handling_expect_some() {
-    let x: i32 = "1".parse().expect("Parsing int from string failed");
+    let x = Some(1).expect("Parsing int from string failed");
     assert_eq!(x, 1);
 }
 
@@ -189,12 +189,12 @@ fn test_parse_option_handling_expect_some() {
 #[should_fail(expected = "Parsing int from string failed")]
 #[allow(unused_variables)]
 fn test_parse_option_handling_expect_none() {
-    let x: i32 = "not a number".parse().expect("Parsing int from string failed");
+    let x: i32 = None.expect("Parsing int from string failed");
 }
 
 #[test]
 fn test_parse_option_handling_unwrap_some() {
-    let x: i32 = "1".parse().unwrap();
+    let x = Some(1).unwrap();
     assert_eq!(x, 1);
 }
 
@@ -202,7 +202,7 @@ fn test_parse_option_handling_unwrap_some() {
 #[should_fail(expected = "called `Option::unwrap()` on a `None` value")]
 #[allow(unused_variables)]
 fn test_parse_option_handling_unwrap_none() {
-    let x: i32 = "not a number".parse().unwrap();
+    let x: i32 = None.unwrap();
 }
 
 // Vectors ---------------------------------------------------------
