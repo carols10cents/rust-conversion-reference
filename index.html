@@ -105,7 +105,7 @@
       <tr>
         <th>String</th>
         <td class="na">n/a</td>
-        <td>x.as_slice()</td>
+        <td>&*x</td>
       </tr>
       <tr>
         <th>&amp;str</th>
@@ -127,7 +127,7 @@
       <tr>
         <th>Vec&lt;T></th>
         <td class="na">n/a</td>
-        <td>x.as_slice()</td>
+        <td>&x[..]</td>
         <td>x.into_boxed_slice()</td>
       </tr>
       <tr>
