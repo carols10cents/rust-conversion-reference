@@ -1,6 +1,3 @@
-#![feature(core)]
-#![feature(collections)]
-
 // This should fail to compile if any of these code examples are wrong.
 
 #[allow(dead_code)]
@@ -14,7 +11,7 @@ fn main() {
     let st: String = s.to_string();
 
     // String => &str
-    let str: &str = st.as_slice();
+    let str: &str = &st;
 }
 
 // i32 ---------------------------------------------------------------
@@ -189,7 +186,7 @@ fn test_parse_option_handling_expect_some() {
 }
 
 #[test]
-#[should_fail(expected = "Parsing int from string failed")]
+#[should_panic(expected = "Parsing int from string failed")]
 #[allow(unused_variables)]
 fn test_parse_option_handling_expect_none() {
     let x: i32 = None.expect("Parsing int from string failed");
@@ -202,7 +199,7 @@ fn test_parse_option_handling_unwrap_some() {
 }
 
 #[test]
-#[should_fail(expected = "called `Option::unwrap()` on a `None` value")]
+#[should_panic(expected = "called `Option::unwrap()` on a `None` value")]
 #[allow(unused_variables)]
 fn test_parse_option_handling_unwrap_none() {
     let x: i32 = None.unwrap();
@@ -214,7 +211,7 @@ fn test_parse_option_handling_unwrap_none() {
 fn test_vec_to_slice_happy() {
     let x = vec!(1u8, 2u8, 3u8);
     static Y: &'static [u8] = &[1, 2, 3];
-    assert_eq!(Y, x.as_slice());
+    assert_eq!(Y, &x[..]);
 }
 
 #[test]
